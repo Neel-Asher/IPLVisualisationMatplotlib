@@ -1,17 +1,13 @@
 from data_loader import load_data
-from visualization import plot_dataset_shapes
+from cleaning import clean_data
+from visualization import *
 
 # Stage 1: Data Ingestion
 deliveries_df, matches_df = load_data()
-print("Deliveries Shape:", deliveries_df.shape)
-print("Matches Shape:", matches_df.shape)
-print("\nDeliveries Columns:")
-print(deliveries_df.columns)
-print("\nMatches Columns:")
-print(matches_df.columns)
-print("\nDeliveries Data Types:")
-print(deliveries_df.dtypes)
-print("\nMatches Data Types:")
-print(matches_df.dtypes)
 plot_dataset_shapes(deliveries_df, matches_df)
 
+# Stage 2: Data Cleaning
+(deliveries_df,matches_df,deliveries_missing_before,matches_missing_before) = clean_data(
+    deliveries_df,matches_df)
+plot_missing_values(deliveries_missing_before,"Deliveries Dataset Missing Values")
+plot_missing_values(matches_missing_before,"Matches Dataset Missing Values")
