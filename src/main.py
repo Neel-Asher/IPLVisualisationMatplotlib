@@ -1,5 +1,6 @@
 from data_loader import load_data
 from cleaning import clean_data
+from transformation import transform_data
 from visualization import *
 
 # Stage 1: Data Ingestion
@@ -11,3 +12,8 @@ plot_dataset_shapes(deliveries_df, matches_df)
     deliveries_df,matches_df)
 plot_missing_values(deliveries_missing_before,"Deliveries Dataset Missing Values")
 plot_missing_values(matches_missing_before,"Matches Dataset Missing Values")
+
+# Stage 3: Data Transformation
+merged_df = transform_data(deliveries_df,matches_df)
+plot_total_runs_distribution(merged_df)
+print("\nPipeline execution completed successfully.")

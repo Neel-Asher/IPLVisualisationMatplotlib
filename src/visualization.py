@@ -46,3 +46,29 @@ def plot_missing_values(missing_series, title):
     plt.tight_layout()
 
     plt.show()
+
+def plot_total_runs_distribution(merged_df):
+
+    run_counts = (
+        merged_df["total_runs"]
+        .value_counts()
+        .sort_index()
+    )
+
+    plt.figure(figsize=(10, 5))
+
+    plt.bar(
+        run_counts.index,
+        run_counts.values
+    )
+
+    plt.title("Distribution of Runs Per Ball")
+
+    plt.xlabel("Runs Scored")
+    plt.ylabel("Frequency")
+
+    plt.xticks(run_counts.index)
+
+    plt.tight_layout()
+
+    plt.show()
