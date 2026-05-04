@@ -274,3 +274,27 @@ def plot_report_barh(
     plt.tight_layout()
 
     plt.show()
+
+def plot_top_batters(result):
+
+    plt.figure(figsize=(10, 6))
+
+    plt.barh(
+        result.index,
+        result.values
+    )
+
+    plt.title("Top 10 Batters")
+
+    plt.xlabel("Runs")
+    plt.ylabel("Batters")
+
+    plt.gca().invert_yaxis()
+
+    plt.tight_layout()
+
+    plt.savefig(
+        "../output/charts/top_batters.png"
+    )
+
+    plt.show()

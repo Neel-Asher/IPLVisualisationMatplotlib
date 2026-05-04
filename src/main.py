@@ -5,6 +5,7 @@ from insights import generate_insights
 from transformation import transform_data
 from analysis import *
 from reporting import *
+from export import export_reports
 from visualization import *
 
 # Stage 1: Data Ingestion
@@ -51,3 +52,6 @@ plot_report_barh(
     xlabel="Runs",
     ylabel="Batter"
 )
+
+# Stage 7: Data Export
+export_reports(merged_df)
