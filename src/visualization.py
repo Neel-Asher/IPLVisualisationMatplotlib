@@ -72,3 +72,118 @@ def plot_total_runs_distribution(merged_df):
     plt.tight_layout()
 
     plt.show()
+
+
+def plot_top_batters(result):
+
+    plt.figure(figsize=(10, 6))
+
+    plt.barh(
+        result.index,
+        result.values
+    )
+
+    plt.title("Top 10 Batters")
+    plt.xlabel("Runs")
+    plt.ylabel("Batters")
+
+    plt.gca().invert_yaxis()
+
+    plt.tight_layout()
+
+    plt.show()
+
+def plot_runs_per_over(result):
+
+    plt.figure(figsize=(10, 5))
+
+    plt.plot(
+        result.index,
+        result.values,
+        marker="o"
+    )
+
+    plt.title("Average Runs Per Over")
+
+    plt.xlabel("Over")
+    plt.ylabel("Average Runs")
+
+    plt.grid(True)
+
+    plt.xticks(range(1, 21))
+
+    plt.show()
+
+def plot_season_trends(result):
+
+    plt.figure(figsize=(12, 5))
+
+    plt.plot(
+        result.index.astype(str),
+        result.values,
+        marker="o"
+    )
+
+    plt.title("Season Wise Total Runs")
+
+    plt.xlabel("Season")
+    plt.ylabel("Total Runs")
+
+    plt.xticks(rotation=45)
+
+    plt.grid(True)
+
+    plt.tight_layout()
+
+    plt.show()
+
+def plot_top_bowlers(result):
+
+    plt.figure(figsize=(10, 6))
+
+    plt.barh(
+        result.index,
+        result["economy"]
+    )
+
+    plt.title("Top Bowlers by Economy")
+
+    plt.xlabel("Economy Rate")
+    plt.ylabel("Bowler")
+
+    plt.gca().invert_yaxis()
+
+    plt.tight_layout()
+
+    plt.show()
+
+def plot_toss_advantage(result):
+
+    plt.figure(figsize=(6, 6))
+
+    plt.pie(
+        result.values,
+        labels=result.index,
+        autopct="%1.1f%%"
+    )
+
+    plt.title("Toss Advantage")
+
+    plt.show()
+
+def plot_boundary_analysis(total_fours, total_sixes):
+
+    labels = ["Fours", "Sixes"]
+    values = [total_fours, total_sixes]
+
+    plt.figure(figsize=(6, 6))
+
+    plt.pie(
+        values,
+        labels=labels,
+        autopct="%1.1f%%"
+    )
+
+    plt.title("Boundary Distribution")
+
+    plt.show()
