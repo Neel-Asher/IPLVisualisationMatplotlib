@@ -187,3 +187,63 @@ def plot_boundary_analysis(total_fours, total_sixes):
     plt.title("Boundary Distribution")
 
     plt.show()
+
+def plot_high_scoring_venues(venue_runs):
+
+    plt.figure(figsize=(12, 6))
+
+    plt.barh(
+        venue_runs.index,
+        venue_runs.values
+    )
+
+    plt.title("Top High-Scoring Venues")
+
+    plt.xlabel("Average Runs")
+    plt.ylabel("Venue")
+
+    plt.gca().invert_yaxis()
+
+    plt.tight_layout()
+
+    plt.show()
+
+def plot_best_death_over_teams(result):
+
+    plt.figure(figsize=(10, 6))
+
+    plt.barh(
+        result.index,
+        result.values
+    )
+
+    plt.title("Best Death Over Teams")
+
+    plt.xlabel("Runs Scored (Overs 16-20)")
+    plt.ylabel("Team")
+
+    plt.gca().invert_yaxis()
+
+    plt.tight_layout()
+
+    plt.show()
+
+def plot_consistent_batters(result):
+
+    plt.figure(figsize=(10, 6))
+
+    plt.barh(
+        result.index,
+        result["average_runs"]
+    )
+
+    plt.title("Most Consistent Batters")
+
+    plt.xlabel("Average Runs Per Match")
+    plt.ylabel("Batter")
+
+    plt.gca().invert_yaxis()
+
+    plt.tight_layout()
+
+    plt.show()

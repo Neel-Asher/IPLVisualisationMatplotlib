@@ -1,5 +1,7 @@
 from data_loader import load_data
 from cleaning import clean_data
+from insights import generate_insights
+from insights import generate_insights
 from transformation import transform_data
 from analysis import *
 from visualization import *
@@ -30,3 +32,9 @@ bowler_result = top_bowlers_by_economy(merged_df)
 plot_top_bowlers(bowler_result.head(10))
 toss_result = toss_match_win_analysis(merged_df)
 plot_toss_advantage(toss_result)
+
+# Stage 5: Derived Insights
+insight_results = generate_insights(merged_df)
+plot_high_scoring_venues(insight_results["venues"])
+plot_best_death_over_teams(insight_results["death_teams"])
+plot_consistent_batters(insight_results["consistent_batters"])
