@@ -4,6 +4,7 @@ from insights import generate_insights
 from insights import generate_insights
 from transformation import transform_data
 from analysis import *
+from reporting import *
 from visualization import *
 
 # Stage 1: Data Ingestion
@@ -38,3 +39,15 @@ insight_results = generate_insights(merged_df)
 plot_high_scoring_venues(insight_results["venues"])
 plot_best_death_over_teams(insight_results["death_teams"])
 plot_consistent_batters(insight_results["consistent_batters"])
+
+# Stage 6: Final Reporting
+batters_report = top_batters_report(merged_df)
+
+plot_report_barh(
+    batters_report,
+    x_column="total_runs",
+    y_column="batter",
+    title="Top Batters Report",
+    xlabel="Runs",
+    ylabel="Batter"
+)

@@ -247,3 +247,30 @@ def plot_consistent_batters(result):
     plt.tight_layout()
 
     plt.show()
+
+def plot_report_barh(
+    df,
+    x_column,
+    y_column,
+    title,
+    xlabel,
+    ylabel
+):
+
+    plt.figure(figsize=(10, 6))
+
+    plt.barh(
+        df[y_column],
+        df[x_column]
+    )
+
+    plt.title(title)
+
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+
+    plt.gca().invert_yaxis()
+
+    plt.tight_layout()
+
+    plt.show()
